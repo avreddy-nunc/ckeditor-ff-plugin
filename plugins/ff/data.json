@@ -1,0 +1,20 @@
+{
+  "videos" : [
+    {
+      "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
+      "title" : "This is video 1"
+    },
+    {
+      "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
+      "title" : "This is title of 2"
+    },
+    {
+      "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
+      "title" : "video 3"
+    },
+    {
+      "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
+      "title" : "4th video"
+    }
+  ]
+}
