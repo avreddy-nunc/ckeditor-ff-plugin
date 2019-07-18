@@ -1,6 +1,56 @@
-.ff-checkbox{
-
+.ff-videos-list{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 100%;
 }
-.ff-checkbox .thumb{
-    width: 100px;
+li.ff-videos-list-item {
+    flex: 0 1 33%;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
+    text-align: center;
+    position: relative;
+}
+.ff-videos-list-item img {
+    width: 100%;
+}
+.ff-videos-list-item.selected div.ff-checkbox svg path {
+    stroke-dashoffset: 0;
+}
+.ff-videos-list-item:focus div.ff-checkbox {
+    transform: scale(1.03);
+}
+
+.ff-videos-list-item div.ff-checkbox {
+    display: block;
+    border: 2px solid #333;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all .2s ease;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #fff;
+}
+.ff-videos-list-item div.ff-checkbox:active {
+    transform: scale(1.05);
+    border-radius: 6px;
+}
+.ff-videos-list-item div.ff-checkbox svg {
+    pointer-events: none;
+}
+.ff-videos-list-item div.ff-checkbox svg path {
+    fill: none;
+    stroke: #333;
+    stroke-width: 4px;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 100;
+    stroke-dashoffset: 101;
+    transition: all 350ms cubic-bezier(1, 0, 0.37, 0.91);
 }

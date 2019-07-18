@@ -13,7 +13,7 @@ if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 CKEDITOR.config.height = 450;
 CKEDITOR.config.width = 'auto';
 //CKEDITOR.config.extraPlugins = 'youtube';
-CKEDITOR.config.extraPlugins = 'ff';
+CKEDITOR.config.extraPlugins = 'ff,preview';
 var initSample = ( function() {
 
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),

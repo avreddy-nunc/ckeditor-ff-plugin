@@ -1,18 +1,22 @@
 {
   "videos" : [
     {
+      "id" : "1",
       "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
       "title" : "This is video 1"
     },
     {
+      "id" : "2",
       "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
       "title" : "This is title of 2"
     },
     {
+      "id" : "3",
       "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
       "title" : "video 3"
     },
     {
+      "id" : "4",
       "img" : "http://nfmedia.flickfusion.net/ava/templates/vsp/images/imageNot.jpg",
       "title" : "4th video"
     }
