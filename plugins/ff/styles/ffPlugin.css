@@ -1,8 +1,21 @@
 .ff-videos-list{
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
+    width: 98%;
+    margin: auto;
+    border: 1px solid #ddd;
+    font-size: .8rem;
+}
+table.ff-videos-list th{
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+}
+table.ff-videos-list th,
+table.ff-videos-list td{
+    padding: .75rem;
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+}
+table.ff-videos-list tr:nth-of-type(odd){
+    background-color: rgba(0,0,0,.05);
 }
 li.ff-videos-list-item {
     flex: 0 1 33%;
@@ -27,14 +40,11 @@ li.ff-videos-list-item {
 .ff-videos-list-item div.ff-checkbox {
     display: block;
     border: 2px solid #333;
-    width: 20px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     border-radius: 4px;
     cursor: pointer;
     transition: all .2s ease;
-    position: absolute;
-    top: 10px;
-    left: 10px;
     background: #fff;
 }
 .ff-videos-list-item div.ff-checkbox:active {
