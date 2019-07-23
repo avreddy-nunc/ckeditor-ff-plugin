@@ -60,7 +60,7 @@ function getQueryParams(qs) {
 
 var query = getQueryParams(document.location.search);
 CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
-    var src = '//nfadmin.flickfusion.net/tp/crm_connector.php?ACTION=VIDEO_PICKER&TOKEN='+encodeURIComponent(query.token);
+    var src = '//admin.flickfusion.net/tp/crm_connector.php?ACTION=VIDEO_PICKER&TOKEN='+encodeURIComponent(query.token);
     return {
         title : 'Videos Picker',
         width : 1000,
