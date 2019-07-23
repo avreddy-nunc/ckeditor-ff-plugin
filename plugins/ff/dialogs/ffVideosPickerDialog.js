@@ -44,12 +44,27 @@ var ffSelectedVideosList = [];
         }
     }
 );*/
+function getQueryParams(qs) {
+    qs = qs.split('+').join(' ');
+
+    var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+
+    while (tokens = re.exec(qs)) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+    }
+
+    return params;
+}
+
+var query = getQueryParams(document.location.search);
 CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
-    var src = "http://192.168.1.152:3000/";
+    var src = '//nfadmin.flickfusion.net/tp/crm_connector.php?ACTION=VIDEO_PICKER&TOKEN='+encodeURIComponent(query.token);
     return {
         title : 'Videos Picker',
         width : 1000,
-        height : 550,
+        height : 500,
         contents : [
             {
                 id : 'ffVideosPicker',
