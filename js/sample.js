@@ -25,8 +25,7 @@ var initSample = ( function() {
 		// :(((
 		if ( isBBCodeBuiltIn ) {
 			editorElement.setHtml(
-				'Hello world!\n\n' +
-				'I\'m an instance of [url=https://ckeditor.com]CKEditor[/url].'
+				''
 			);
 		}
 

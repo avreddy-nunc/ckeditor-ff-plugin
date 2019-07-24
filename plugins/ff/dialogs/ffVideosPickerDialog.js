@@ -80,6 +80,10 @@ CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
         ],
         onLoad  :function () {
             const self = this;
+            self.parts.close.$.style.display = 'none';
+            self.parts.title.$.style.display = 'none';
+            self.parts.contents.$.style.padding = '0';
+            self.parts.footer.$.style.display = 'none';
             window.document.addEventListener('keyup', function (e) {
                 if (e.keyCode == 8) {
                     var editor = CKEDITOR.instances.editable,
@@ -91,22 +95,30 @@ CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
                 }
             });
             window.addEventListener('message', function (e) {
-                try{
-                    var message = JSON.parse(e.data);
-                    if(message && message.action && message.action === "updateFfSelectedList"){
-                        ffSelectedVideosList = message.data;
-                    }else if(message && message.action && message.action === "doneFfVideoPicker"){
-                        ffSelectedVideosList = message.video_picker_selectedList;
-                        document.getElementById(self.getButton('ok').domId).click();
+                if(e.data && e.data ==='Cancel'){
+                    document.getElementById(self.getButton('cancel').domId).click();
+                }else {
+                    try {
+                        var message = JSON.parse(e.data);
+                        if (message && message.action && message.action === "updateFfSelectedList") {
+                            ffSelectedVideosList = message.data;
+                        } else if (message && message.action && message.action === "doneFfVideoPicker") {
+                            ffSelectedVideosList = message.video_picker_selectedList;
+                            document.getElementById(self.getButton('ok').domId).click();
+                        }
+                    }
+                    catch (err) {
+                        console.log('Invalid JSON to parse')
                     }
                 }
-                catch (err) {
-                    console.log('Invalid JSON to parse')
-                }
+            });
+            this.getParentEditor().on('afterInsertHtml',function (e) {
+                console.log(e);
             });
             var iframeElem = CKEDITOR.dialog.getCurrent().getContentElement('ffVideosPicker', 'myFFVideoPickerIframe').getElement().$;
             var iframe = document.createElement('iframe');
             iframe.src = src;
+            iframe.id = "myFFVideoPickerIframeElement";
             iframe.style.display = "block";
             iframe.style.width = "1000px";
             iframe.style.height = "500px";
@@ -114,15 +126,26 @@ CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
             //iframeElem.innerHTML = '<ifrmae src="'+src+'" style="width: 1000px;height:600px;border: none;margin: 0;padding: 0;"></ifrmae>';
         },
         onOk : function () {
-            var content = '<div style="display: flex;flex-direction: row;">';
+            var content = '';
+            content +='<div style="display: flex;flex-direction: row;flex-wrap: wrap;width: 100%;">';
             ffSelectedVideosList.forEach(function (video) {
-                content += '<div class="ff-video" style="display: flex;flex-direction: column;padding: 4px;justify-content: center;align-items: center;"><img style="width: 150px;" src="'+video.videoImg+'" alt="img" />' +
-                    '<h5>'+video.title+'</h5></div>';
+                content += '<div contenteditable="false" style="display: block;flex: 0 0 25%;max-width: 25%; padding-right: 15px; padding-left: 15px;margin-top: 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;" >' +
+                    '<div style="display: flex;flex-direction: column;background: #e7e7e7;height: 100%;cursor: pointer;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;overflow: hidden;position: relative;">' +
+                    '<div style="width: 100%;padding: 25% 0;position: relative;">' +
+                    '<a href="'+video.videoPlayerUrl+'" target="_blank" ><img style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;object-fit: cover;-o-object-fit: cover;border: none;outline: none;padding: 0;margin: 0;" src="'+video.videoImg+'" alt="img" /></a>' +
+                    '</div>' +
+                    '<div style="width: 100%;"><a href="'+video.videoPlayerUrl+'" target="_blank"><h5 style="font-size: 1rem;font-weight: 700;margin: 0;padding: 0.5rem;">'+video.title+'</h5></a></div>' +
+                    '</div>' +
+                    '</div>';
             });
-            content +='</div>';
+            content += '</div>';
             var element = CKEDITOR.dom.element.createFromHtml(content);
             var instance = this.getParentEditor();
             instance.insertElement(element);
+        },
+        onShow : function () {
+            var iframe = document.getElementById('myFFVideoPickerIframeElement');
+            iframe.src = iframe.src;
         }
     }
 });
