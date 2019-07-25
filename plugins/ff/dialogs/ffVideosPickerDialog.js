@@ -129,7 +129,7 @@ CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
             var content = '';
             content +='<div style="width: 100%;">';
             ffSelectedVideosList.forEach(function (video) {
-                content += '<div contenteditable="false" style="display: block;margin-top: 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background: #e7e7e7;width:100%;cursor: pointer;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;overflow: hidden;position: relative;" >' +
+                content += '<div contenteditable="false" style="display: block;margin-top: 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background: #f3f3f3;width:100%;cursor: pointer;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;overflow: hidden;position: relative;" >' +
                     '<div style="width: 25%;float: left;display: inline-block;">' +
                     '<div style="width: 100%;padding: 25% 0;position: relative;">' +
                     '<a href="'+video.videoPlayerUrl+'" target="_blank" >' +
