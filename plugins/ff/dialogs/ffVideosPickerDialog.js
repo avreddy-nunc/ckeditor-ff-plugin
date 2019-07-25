@@ -127,15 +127,19 @@ CKEDITOR.dialog.add( 'ffVideosPickerDialog', function ( editor ) {
         },
         onOk : function () {
             var content = '';
-            content +='<div style="display: flex;flex-direction: row;flex-wrap: wrap;width: 100%;">';
+            content +='<div style="width: 100%;">';
             ffSelectedVideosList.forEach(function (video) {
-                content += '<div contenteditable="false" style="display: block;flex: 0 0 25%;max-width: 25%; padding-right: 15px; padding-left: 15px;margin-top: 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;" >' +
-                    '<div style="display: flex;flex-direction: column;background: #e7e7e7;height: 100%;cursor: pointer;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;overflow: hidden;position: relative;">' +
+                content += '<div contenteditable="false" style="display: block;margin-top: 15px;-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;background: #e7e7e7;width:100%;cursor: pointer;border: 1px solid #ddd;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;overflow: hidden;position: relative;" >' +
+                    '<div style="width: 25%;float: left;display: inline-block;">' +
                     '<div style="width: 100%;padding: 25% 0;position: relative;">' +
-                    '<a href="'+video.videoPlayerUrl+'" target="_blank" ><img style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;object-fit: cover;-o-object-fit: cover;border: none;outline: none;padding: 0;margin: 0;" src="'+video.videoImg+'" alt="img" /></a>' +
+                    '<a href="'+video.videoPlayerUrl+'" target="_blank" >' +
+                    '<img style="width: 100%;height: 100%;position: absolute;top: 0;left: 0;object-fit: cover;-o-object-fit: cover;border: none;outline: none;padding: 0;margin: 0;" src="'+video.videoImgPlay+'" alt="img" />' +
+                    '</a>' +
                     '</div>' +
-                    '<div style="width: 100%;"><a href="'+video.videoPlayerUrl+'" target="_blank"><h5 style="font-size: 1rem;font-weight: 700;margin: 0;padding: 0.5rem;">'+video.title+'</h5></a></div>' +
                     '</div>' +
+                    '<div style="width: 75%;float : left; display: inline-block;">' +
+                    '<a href="'+video.videoPlayerUrl+'" target="_blank"><h5 style="font-size: 1rem;font-weight: 700;margin: 0;padding: 0.5rem;">'+video.title+'</h5></a>' +
+                    '<p style="padding: 0.5rem;margin: 0;">'+video.videoDesc+'</p></div>' +
                     '</div>';
             });
             content += '</div>';

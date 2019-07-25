@@ -10,7 +10,7 @@ if ( CKEDITOR.env.ie && CKEDITOR.env.version < 9 )
 
 // The trick to keep the editor in the sample quite small
 // unless user specified own height.
-CKEDITOR.config.height = 600;
+CKEDITOR.config.height = 500;
 CKEDITOR.config.width = 1000;
 //CKEDITOR.config.extraPlugins = 'youtube';
 CKEDITOR.config.extraPlugins = 'ff,preview';
