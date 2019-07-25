@@ -14,6 +14,8 @@ CKEDITOR.config.height = 500;
 CKEDITOR.config.width = 1000;
 //CKEDITOR.config.extraPlugins = 'youtube';
 CKEDITOR.config.extraPlugins = 'ff,preview';
+CKEDITOR.config.removePlugins = 'easyimage,cloudservices';
+
 var initSample = ( function() {
 
 	var wysiwygareaAvailable = isWysiwygareaAvailable(),
